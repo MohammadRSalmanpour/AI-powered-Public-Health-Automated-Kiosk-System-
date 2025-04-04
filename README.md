@@ -10,13 +10,21 @@ Python >= 3.5
 
 Dataset Link:
 The dataset used in this study can be accessed at the following link: https://github.com/sjy1203/GAMENet/tree/master/data  
+you can find the well-preprocessed data in pickle format.
 
-Data Information in ./data/
+Data Information in ./data/:  
 
 records_final.pkl: Input data with four dimensions (patient_idx, visit_idx, medical modal, medical id) where medical modal equals 3 (made of diagnosis, procedure, and drug).
 voc_final.pkl: Vocabulary list for transforming medical words to corresponding indices.
 ddi_A_final.pkl, ehr_adj_final.pkl: Drug-drug adjacency matrices constructed from EHR and DDI datasets.
 drug-atc.csv, ndc2atc_level4.csv, ndc2rxnorm_mapping.txt: Mapping files for drug code transformation.
+
+
+You can also regenerate the data as follows:
+Download [MIMICIII](https://mimic.physionet.org/) data and place the following files in ./data/:
+DIAGNOSES_ICD.csv,PRESCRIPTIONS.csv,PROCEDURES_ICD.csv and Download DDI data and put it in ./data/
+
+
 
 Running the HERMES Kiosk Model
 
