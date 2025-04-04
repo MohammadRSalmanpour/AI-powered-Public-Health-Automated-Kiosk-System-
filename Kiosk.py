@@ -1,4 +1,3 @@
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -10,10 +9,9 @@ from torch.nn import MultiheadAttention
 from torch.utils.data import DataLoader, TensorDataset
 
 
-
-class Kiosk(nn.Module):
+class HERMES_Kiosk(nn.Module):
     def __init__(self, vocab_size, ehr_adj, ddi_adj, emb_dim=64, device=torch.device('cpu:0'), ddi_in_memory=True):
-        super(Kiosk, self).__init__()
+        super(HERMES_Kiosk, self).__init__()
         K = len(vocab_size)
         self.K = K
         self.vocab_size = vocab_size
@@ -158,9 +156,3 @@ class Kiosk(nn.Module):
         self.inter.data.uniform_(-initrange, initrange)
 
 
-########################################################################
-
-###############################################
-
-
-###############################################
