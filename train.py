@@ -9,13 +9,13 @@ import os
 import torch.nn.functional as F
 from collections import defaultdict
 
-from models import Kiosk
+from Kiosk import HERMES_Kiosk
 from util import llprint, multi_label_metric, ddi_rate_score, get_n_params
 
 torch.manual_seed(1203)
 np.random.seed(1203)
 
-model_name = 'Kiosk'
+model_name = 'HERMES_Kiosk'
 resume_name = ''
 
 # Training settings
@@ -121,7 +121,7 @@ def main():
     decay_weight = 0.85
 
     voc_size = (len(diag_voc.idx2word), len(pro_voc.idx2word), len(med_voc.idx2word))
-    model = kiosk(voc_size, ehr_adj, ddi_adj, emb_dim=64, device=device, ddi_in_memory=DDI_IN_MEM)
+    model = HERMES_Kiosk(voc_size, ehr_adj, ddi_adj, emb_dim=64, device=device, ddi_in_memory=DDI_IN_MEM)
     if TEST:
         model.load_state_dict(torch.load(open(resume_name, 'rb')))
     model.to(device=device)
